@@ -74,7 +74,7 @@ F istasyonuna ulaştık. Yol tamamlandı!
 En kısa yol = ['A', 'B', 'E', 'F'] 
 
 
-##BFS ve A* kullanma nedenimiz##
+## BFS ve A* kullanma nedenimiz ##
 
 
 BFS, genişlik öncelikli bir arama algoritmasıdır ve en kısa yol bulmada oldukça etkilidir,
@@ -84,9 +84,57 @@ En az aktarma yaparak hedefe ulaşılmasını sağlar. Özellikle metro hatları
 A (A-Star) algoritması, BFS'ye kıyasla daha akıllıca bir yaklaşım sunar ve özellikle daha büyük ve karmaşık grafiklerde daha etkili sonuçlar verir.Hem mevcut yolu (g(n)) hem de hedefe olan tahmin edilen mesafeyi (h(n)) kullanarak en hızlı yolu bulur. Bu sayede, çok daha verimli bir arama yapar.
 Heuristic (tahmin) kullanımı, belirli bir hedefe ulaşmada algoritmanın yönlendirilmeye yardımcı olur, böylece gereksiz yollar ve aramalar azaltılır.
 
+## Örnek Kullanım ve Test Sonuçları 
+Projeme kattığım yeniliklerden bahsetmem gerekirse ben istasyon adlarını kullanıcıdan istiyorum.eğer o istasyon aktarma durağı ise birden fazla kez durak ismi mevcut demektir(örneğin Kızılay,Demetevler,Gar) bu yüzden kullanıcıya tekrar sorarak istasyonun hangi hatta olduğunu teyit ettiriyorum.Böylece rota süresini daha doğru hesaplıyor.
 
+Başlangıç istasyonu adını girin: Kızılay
+❌ 'kızılay' adıyla birden fazla istasyon bulundu. Lütfen hangi istasyonu seçmek istediğinizi belirtin:
+  1. Kızılay (K1)
+  2. Kızılay (M2)
+Seçiminizi yapın (1, 2, ...): 2
+Hedef istasyonu adını girin: aşti
 
+🔍 En az aktarmalı rota hesaplanıyor...
+✅ En az aktarmalı rota: Kızılay , M2) -> aşti , M1)
 
+⏳ En hızlı rota hesaplanıyor...
+✅ En hızlı rota (5 dakika): Kızılay , M2) -> aşti , M1)
+**************************************************************************************************************************
+
+Örneğin bu örnekte Kızılay-Demetevler rotasının süresi hesaplanırken yakın olan demetevler(K3) istasyonunun değil kullanıcının istediği diğer istasyon olan T2 istasyonunun süresini hesaplıyor.
+
+Başlangıç istasyonu adını girin: kızılay
+❌ 'kızılay' adıyla birden fazla istasyon bulundu. Lütfen hangi istasyonu seçmek istediğinizi belirtin:
+  1. Kızılay (K1)
+  2. Kızılay (M2)
+Seçiminizi yapın (1, 2, ...): 1
+Hedef istasyonu adını girin: demetevler
+❌ 'demetevler' adıyla birden fazla istasyon bulundu. Lütfen hangi istasyonu seçmek istediğinizi belirtin:
+  1. Demetevler (K3)
+  2. Demetevler (T2)
+Seçiminizi yapın (1, 2, ...): 2
+
+🔍 En az aktarmalı rota hesaplanıyor...
+✅ En az aktarmalı rota: Kızılay , K1) -> Ulus , K2) -> Demetevler , K3) -> Demetevler , T2)
+
+⏳ En hızlı rota hesaplanıyor...
+✅ En hızlı rota (13 dakika): Kızılay , K1) -> Ulus , K2) -> Demetevler , K3) -> Demetevler , T2)
+**********************************************************************************************
+
+Projemin diğer özelliği de istasyon isimleri veritababnında küçük harfle kaydedilmesine rağmen ,büyük küçük harf duyarlılığı etkisiz duruma getirilmiştir.
+
+Başlangıç istasyonu adını girin: GAR
+❌ 'gar' adıyla birden fazla istasyon bulundu. Lütfen hangi istasyonu seçmek istediğinizi belirtin:
+  1. Gar (M4)
+  2. Gar (T3)
+Seçiminizi yapın (1, 2, ...): 2
+Hedef istasyonu adını girin: ULUS
+
+🔍 En az aktarmalı rota hesaplanıyor...
+✅ En az aktarmalı rota: Gar , T3) -> Demetevler , T2) -> Demetevler , K3) -> Ulus , K2)
+
+⏳ En hızlı rota hesaplanıyor...
+✅ En hızlı rota (15 dakika): Gar , T3) -> Gar , M4) -> Sıhhiye , M3) -> Kızılay , M2) -> Kızılay , K1) -> Ulus , K2)
 
 
 
