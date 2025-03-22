@@ -84,6 +84,7 @@ En az aktarma yaparak hedefe ulaşılmasını sağlar. Özellikle metro hatları
 A (A-Star) algoritması, BFS'ye kıyasla daha akıllıca bir yaklaşım sunar ve özellikle daha büyük ve karmaşık grafiklerde daha etkili sonuçlar verir.Hem mevcut yolu (g(n)) hem de hedefe olan tahmin edilen mesafeyi (h(n)) kullanarak en hızlı yolu bulur. Bu sayede, çok daha verimli bir arama yapar.
 Heuristic (tahmin) kullanımı, belirli bir hedefe ulaşmada algoritmanın yönlendirilmeye yardımcı olur, böylece gereksiz yollar ve aramalar azaltılır.
 
+
 ## Örnek Kullanım ve Test Sonuçları 
 Projeme kattığım yeniliklerden bahsetmem gerekirse ben istasyon adlarını kullanıcıdan istiyorum.eğer o istasyon aktarma durağı ise birden fazla kez durak ismi mevcut demektir(örneğin Kızılay,Demetevler,Gar) bu yüzden kullanıcıya tekrar sorarak istasyonun hangi hatta olduğunu teyit ettiriyorum.Böylece rota süresini daha doğru hesaplıyor.
 
@@ -136,7 +137,18 @@ Hedef istasyonu adını girin: ULUS
 ⏳ En hızlı rota hesaplanıyor...
 ✅ En hızlı rota (15 dakika): Gar , T3) -> Gar , M4) -> Sıhhiye , M3) -> Kızılay , M2) -> Kızılay , K1) -> Ulus , K2)
 
+## Projeyi Geliştirme Fikirleri
 
+-Kullanıcı Dostu Bir Arayüz Geliştirme
+ flask veya django kullanılarak bir web sitesi oluşturulabilir böylece kaliteli kullanıcı deneyimi sunar
+
+-Multi-Modal Ulaşım Entegrasyonu
+ Metro dışında otobüs, tramvay veya bisiklet gibi ulaşım araçları da dahil ederek karma bir ulaşım rotası oluşturulabilir.(google maps 
+ gibi)
+
+ -Kalabalık istasyonları tespit etme 
+ Kullanıcı belirli bir saatte yola çıkmak istediğinde, yapay zekayla kalabalık seviyesini tahmin eden veya gercek yogunluk verilerine 
+ göre,hangi istasyonun daha az kalabalık olacagına dair öneri sunan bir sistem tasarlanabilir.
 
 
 
